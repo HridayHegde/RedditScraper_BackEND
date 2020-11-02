@@ -11,8 +11,9 @@ def getfromreddit():
     some_json=request.get_json()
     limit = some_json['limits']
     subreddit = some_json['subreddit']  
+    print(subreddit)
     response = scrapper.Scrape(subred=subreddit,limits=limit) 
-    return str(response)
+    return response
 
 if __name__=='__main__':
-    app.run(debug=False)
+    app.run(host='0.0.0.0',debug=False)
